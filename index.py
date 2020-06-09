@@ -131,8 +131,7 @@ class Product:
         new_price = Entry(self.edit_wind)
         new_price.grid(row = 3, column = 2)
 
-        Button(self.edit_wind, text = 'Actualizar', command = lambda: self.edit_records(new_name.get(), name,
-        new_price.get(), old_price)).grid(row = 4, column = 2, sticky = W)
+        Button(self.edit_wind, text = 'Actualizar', command = lambda: self.edit_records(new_name.get(), name, new_price.get(), old_price)).grid(row = 4, column = 2, sticky = W)
 
     #Edit records
     def edit_records(self, new_name, name, new_price, old_price):
@@ -140,7 +139,7 @@ class Product:
         parameters = (new_name, new_price,name, old_price)
         self.run_query(query, parameters)
         self.edit_wind.destroy()
-        self.message['text'] = 'Registro {} actualizado correctamente'.format(name)
+        self.messages['text'] = 'Registro {} actualizado correctamente'.format(name)
         self.get_products()
 
 if __name__ == '__main__':
